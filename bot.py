@@ -10,7 +10,8 @@ load_dotenv()
 DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-FRIEND_ID_LIST = [344563884490752011, 335496196594466837, 373406852597284865, 1125518726805069834, 423962402476785664, 330969657840500738]
+#Add Friend IDs in Braces
+FRIEND_ID_LIST = []
 
 openai_client = OpenAI(
     api_key=OPENAI_API_KEY, 
@@ -45,6 +46,9 @@ async def on_message(message):
             )
 
             reply = response.choices[0].message.content
+
+
+            #Bad code to take longer to write depending on DeepSeek answer length
 
             if len(reply) > 100:
                 answertime = 6 + randint(0, 3)
